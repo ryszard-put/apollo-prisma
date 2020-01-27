@@ -1,0 +1,18 @@
+type Article {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  title: String!
+  content: String!
+  owner: User! @relation(link: INLINE)
+}
+
+type User {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  email: String! @unique
+  password: String! @unique
+  name: String!
+  articles: [Article!]
+}
